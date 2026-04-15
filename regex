@@ -1,0 +1,42 @@
+Kode,Nama,Penjelasan,Contoh Kecocokan
+\d,Digit,Angka dari 0 sampai 9.,"1, 7, 0"
+\D,Non-Digit,Apa saja kecuali angka.,"a, !,   (spasi)"
+\w,Word,"Huruf (A-Z, a-z), angka (0-9), dan _.","O, k, 2, _"
+\W,Non-Word,"Apa saja kecuali huruf, angka, dan _.","!, @,  , \n"
+\s,Whitespace,"Segala jenis spasi (spasi, tab, newline)."," , \t, \n"
+\S,Non-Space,Apa saja kecuali spasi.,"X, 9, %"
+
+Anchors & Boundaries (Penanda Posisi)
+Karakter ini tidak mencocokkan teks, melainkan posisi teks tersebut berada.
+^ (Caret): Menandakan awal baris atau string.
+Contoh: ^Saya hanya akan cocok jika "Saya" ada di paling depan kalimat.
+$ (Dollar): Menandakan akhir baris atau string.
+Contoh: makan$ hanya cocok jika "makan" adalah kata terakhir.
+\b (Boundary): Menandakan batas kata (awal atau akhir sebuah kata).
+Contoh: \bmata\b tidak akan mengambil kata "permata".
+\B (Non-Boundary): Kebalikan dari \b. Mencocokkan posisi yang bukan batas kata.
+
+Quantifiers (Penentu Jumlah)
+Digunakan setelah karakter untuk menentukan berapa kali karakter tersebut harus muncul.
+* (Asterisk): Muncul 0 kali atau lebih.
++ (Plus): Muncul 1 kali atau lebih (harus ada minimal satu).
+? (Question Mark): Muncul 0 atau 1 kali (opsional).
+{n}: Muncul tepat n kali. (Contoh: \d{3} cari 3 angka).
+{n,}: Muncul minimal n kali.
+{n,m}: Muncul antara n sampai m kali.
+
+Sets & Groups (Pengelompokan)
+Digunakan untuk menentukan pilihan karakter atau mengelompokkan bagian tertentu.
+[ ] (Character Set): Mencari salah satu karakter di dalam kurung.
+Contoh: [abc] mencari 'a', 'b', atau 'c'.
+[^ ] (Negated Set): Mencari apa saja kecuali karakter di dalam kurung.
+Contoh: [^0-9] mencari apa saja selain angka.
+| (OR): Mencari pilihan pola A atau pola B.
+Contoh: makan|minum mencari salah satu dari keduanya.
+
+Karakter Khusus Lainnya
+. (Dot): Wildcard untuk karakter apa pun kecuali baris baru.
+\ (Escape): Digunakan jika kamu ingin mencari karakter yang sebenarnya punya arti di Regex.
+Contoh: Untuk mencari titik asli, gunakan \.. Untuk mencari tanda tanya asli, gunakan \?.
+
+( ) (Group): Mengelompokkan pola agar bisa diberikan quantifier atau diambil hasilnya (seperti saat kita membalik nama).
